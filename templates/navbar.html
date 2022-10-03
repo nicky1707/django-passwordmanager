@@ -1,0 +1,23 @@
+<div class="col-12 container-fluid shadow-none fixed-top position-realative bg-light">
+    <div class="d-flex justify-content-between align-items-center mt-3 pb-3 ">
+        <a href="{% url 'home' %}" style="color:#816ac9;"><div class="fs-lg-2" style="font-weight: 600;">PasswordManager</div></a>
+        <div class="d-md-block d-none">
+            <form class="container-sm-fluid col-8  d-flex">
+                <input class="form-control me-2 col-8" type="search" value="{{query}}" name='q' placeholder="Search.." aria-label="Search">
+                <button class="d-none d-md-block btn fg-white gradient-custom" type="submit">Search</button>
+              </form>
+        </div>
+        <div class="dropdown px-3">
+            <div class="text-dark cur-pointer col" id="dropdownMenu1" data-bs-toggle="dropdown" >
+              <div class="avatar avatar--small active align-items-center">
+                <img role="button" src="{{request.user.avatar.url}}" />
+              </div>
+            </div>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li><a href="{% url 'menu'%}"><button class="dropdown-item" type="button">@{{request.user.username}}</button></a></li>
+              <li><a href="{% url 'settings' %}"><button class="dropdown-item" type="button">Settings</button></a></li>
+              <li><a class="d-none d-sm-block" href="{% url 'logout' %}"><button class="dropdown-item" style="color: red;"type="button">Logout</button></a></li>
+            </ul>
+          </div>
+    </div>
+</div>

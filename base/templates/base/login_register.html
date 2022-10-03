@@ -1,0 +1,185 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block content %}
+
+{% if page == 'login'%}
+
+<section class="vh-100 gradient-custom">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-10">
+        <div class="card" style="border-radius: 1rem">
+          <div class="row g-0">
+            <div class="col-md-6 col-lg-5 d-none d-md-block">
+              <img
+                src="{% static 'images/6.png' %}"
+                alt="login form"
+                class="img-fluid"
+                style="padding-top: 8rem; border-radius: 1rem 1rem 1rem 1rem"
+              />
+            </div>
+            <div
+              class="col-md-6 col-lg-7 d-flex align-items-center"
+              style="background: white; border-radius: 1rem"
+            >
+              <div class="card-body p-4 p-lg-5 text-black">
+                <form method="POST">
+                  {% csrf_token %}
+                  <div class="d-flex align-items-center mb-3 pb-1">
+                    <span class="h1 mb-0" style="color:#816ac9;"
+                      >Password Manager</span
+                    >
+                  </div>
+
+                  <h5
+                    class="fw-normal mb-3 pb-3 text-muted"
+                    style="letter-spacing: 0.5px"
+                  >
+                    Sign into your account
+                  </h5>
+
+                  <div class="form-outline mb-4">
+                    <input
+                      type="text"
+                      id="form2Example17"
+                      name="email"
+                      placeholder="Email"
+                      class="form-control form-control-lg"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <input
+                      type="password"
+                      id="form2Example27"
+                      name="password"
+                      placeholder="Password"
+                      class="form-control form-control-lg"
+                      required
+                    />
+                  </div>
+                  {% if messages %} {% for message in messages %} 
+                        {% if 'usernotexists' in message.tags %}
+                  <p class="text-danger" style="z-index: 99">{{message}}</p>
+                        {% endif %} 
+                        {% if 'errorlogin' in message.tags %}
+                  <p class="text-danger" style="z-index: 99">{{message}}</p>
+                  {% endif %} 
+                  {% endfor %} {% endif %}
+
+                  <div class="pt-1 mb-3">
+                    <button
+                      class="btn btn-sm-lg col-sm-2 col-12 btn-block fg-white gradient-custom"
+                      type="submit"
+                    >
+                      Login
+                    </button>
+                  </div>
+
+                  <a class="small text-muted" href="#!">Forgot password?</a>
+                  <hr style="color: rgb(215, 215, 215)" />
+                  <p class="mb-1 text-muted pb-lg-1">
+                    Don't have an account?
+                    <a href="{% url 'register' %}">Register here</a>
+                  </p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Login form end -->
+
+{% else %}
+<div
+  class="col-12 container-fluid shadow-none fixed-top position-realative bg-light"
+>
+  <div class="d-flex justify-content-between align-items-center mt-3 pb-3">
+    <a href="{% url 'home' %}" style="color: #816ac9"
+      ><div class="fs-lg-2" style="font-weight: 600">PasswordManager</div></a
+    >
+  </div>
+</div>
+
+<!-- register from start -->
+<section>
+  <div
+    class="container-fluid col-11 col-sm-6 px-4 rounded"
+    style="margin-top: 7rem"
+  >
+    <form method="POST" class="">
+      <h3 class="mt-2 mb-4">Sign Up</h3>
+      {% csrf_token %}
+      <div class="form-group mb-3 mt-2">
+        <input
+          required
+          type="email"
+          class="form-control"
+          id="email"
+          name="email"
+          placeholder="Email"
+        />
+      </div>
+      <div class="form-group mb-3">
+        <input
+          required
+          type="text"
+          class="form-control"
+          id="firstName"
+          name="name"
+          placeholder="Full Name"
+        />
+      </div>
+      <div class="form-group mb-3">
+        <input
+          required
+          type="text"
+          class="form-control"
+          id="firstName"
+          name="username"
+          placeholder="Username"
+        />
+      </div>
+      <div class="form-group mb-3">
+        <input
+          required
+          type="password"
+          class="form-control"
+          id="password1"
+          name="password1"
+          placeholder="Password"
+        />
+      </div>
+      <div class="form-group mb-3">
+        <input
+          required
+          type="password"
+          class="form-control"
+          id="password2"
+          name="password2"
+          placeholder="Confirm password"
+        />
+      </div>
+      {% if messages %} {% for message in messages %}
+      <p class="text-danger">{{message}}</p>
+      {% endfor %} {% endif %}
+      <button
+        type="submit"
+        class="btn col-sm-4 col-12 fg-white gradient-custom mt-2"
+      >
+        Create Account
+      </button>
+    </form>
+    <div class="text-center mt-3">
+      <p class="text-muted">
+        Already signed up ? <a href="{% url 'login' %}">Login here</a>
+      </p>
+    </div>
+  </div>
+</section>
+{% if page != 'login'%} {% include 'footer.html' %} {% endif %} {% endif %} 
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% include 'navbar.html' %}
+
+{% include 'sidebar.html' %}
+<!-- large screen -->
+<div class="col-lg-10 offset-lg-2 col-md-9 offset-md-3 col-10 offset-2" >
+  <div class="container justify-content-between d-none d-sm-block" style="margin-top: 3rem; padding-top:2rem;">
+    {% if page == 'home'  %}
+    <!--password cards-->
+    {% include 'base/password_cards.html' %}
+  
+    {% endif %}
+
+    <div class="d-block">
+      <a href="{% url 'create-pass' %}"><i
+          class="fa-3x fa-solid fa-circle-plus position-fixed bottom-0 end-0 cursor-pointer"
+          style=" margin: 5rem 2rem; position:fixed; color:#985fc0;"></i></a>
+    </div>
+
+  </div>
+</div>
+
+<!-- mobile screen accordian view -->
+<div class="col-12 d-sm-none d-block" style="margin-top: 4rem;margin-bottom: 5rem; padding-top:2rem;">
+ 
+  {% if page == 'home' %}
+  
+  {% include 'base/mob_password_card.html' %}
+
+  {% endif %}
+ 
+</div>
+
+
+<div class="d-block d-sm-none" id="add-btn-mobile">
+  <a href="{% url 'create-pass' %}"><i
+      class="fa-3x fa-solid fa-circle-plus position-fixed bottom-0 end-0 cursor-pointer"
+      style=" margin: 7rem 2rem; position:fixed; color:#985fc0;"></i></a>
+</div>
+
+{% include 'footer-navbar.html' %}
+<!-- Bottom navbar mobile -->
+
+
+<!-- mobile view end -->
+
+<!-- modal add password-->
+<!-- <div class="modal fade" id="mobile-modal" tabindex="1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-light" id="exampleModalLabel">Create Password</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form action="" method="POST" class="">
+            <div class="modal-body">
+              <label for="exampleInputEmail1" class="form-label">App name or site name</label>
+              <input name="note" id="note" class="form-control" aria-describedby="emailHelp" placeholder="Instagram, Twitter, Snapchat">
+            </div>
+        
+            <div class="modal-body mb-2">
+              <label for="exampleInputPassword1" class="form-label" >Username</label>
+              <input name="siteusername" type="text" class="form-control" id="exampleInputPassword1" placeholder="username">
+           </div>
+           <div class="divider d-flex align-items-center my-3">
+            <p class="text-center mx-3 mb-0" style="font-size: 13px; color:#6272a4">Your password will be auto-generated </p>
+            </div> 
+          <button type="submit" class="btn btn-accent mb-3 mx-2">Add password</button>
+        </form>
+    
+        </div>
+      </div>
+    </div> -->
+
+<!-- modal end -->
+
+</div>
+{% include 'footer.html' %}
+{% endblock %}

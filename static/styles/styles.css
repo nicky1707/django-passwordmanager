@@ -1,0 +1,132 @@
+
+.copy {
+  position: relative;
+  padding: 10px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+}
+.copy:after {
+  content: "";
+  background: linear-gradient(to right, #816ac9, #985fc0);
+  /* background: #90EE90; */
+  display: block;
+  border-radius: 20%;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px!important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s
+}
+
+.copy:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
+
+.avatar {
+    position: relative;
+    display: inline-block;
+    border-radius: 50%;
+    border: 2px solid var(--color-main);
+  }
+  
+  .avatar img {
+    display: block;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  .avatar::after {
+    content: "";
+    display: block;
+    position: absolute;
+    background-color: var(--color-gray);
+    z-index: 111;
+    border-radius: 50%;
+    border: 0.3rem solid var(--color-dark);
+  }
+  
+  .avatar.active::after {
+    background-color: var(--color-success);
+  }
+  
+  .avatar.avatar--small img {
+    width: 2rem;
+    height: 2rem;
+  }
+  
+  .avatar.avatar--small:after {
+    width: 0.7rem;
+    height: 0.7rem;
+    bottom: 0px;
+    right: -6px;
+  }
+  
+  .avatar.avatar--medium img {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+  }
+  
+  .avatar.avatar--medium:after {
+    width: 0.7rem;
+    height: 0.7rem;
+    bottom: 0px;
+    right: -6px;
+  }
+  
+  .avatar.avatar--large img {
+    display: block;
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+  }
+  
+  .avatar.avatar--large:after {
+    width: 1rem;
+    height: 1rem;
+    bottom: 2px;
+    right: 3.5px;
+  }
+
+.cursor-pointer{
+  cursor: pointer;
+}
+.home-container{
+  display:block; 
+  grid-template-columns:3fr;
+
+}
+@media (min-width:576px){
+  .home-container{
+      display:grid; 
+      grid-template-columns:1fr 4fr ;
+  }
+  .sidebar{
+      font-size: 18px;
+  }
+}
+
+@media (min-width:769px){
+  .home-container{
+      display:grid; 
+      grid-template-columns:1fr 3fr ;
+  }
+  .sidebar{
+      font-size: 16px;
+  }
+}
+
+::-webkit-scrollbar{
+  display: none;
+}
+
+  

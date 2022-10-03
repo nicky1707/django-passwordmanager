@@ -1,0 +1,36 @@
+<div
+  class="col-lg-2 col-md-3 d-none d-sm-flex flex-column justify-content-between flex-shrink-0 text-white bg-dark p-4"
+  style="height: 100vh; position: fixed"
+>
+  <div class="mt-3">
+    <div class="mb-3">
+      <a class="text-muted" href="{% url 'home' %}"
+        ><i class="fa-solid fa-home pe-2"></i> Home</a
+      >
+    </div>
+    <!-- <div class="mb-3">
+      <a class="text-muted" id="pass-btn" href="{% url 'home' %}"
+        ><i class="fa-solid fa-lock pe-2"></i> Password</a
+      >
+    </div> -->
+
+    <div class="mb-3">
+      <a class="text-muted" href="{% url 'create-pass' %}"
+        ><i class="fa-solid fa-plus pe-2"></i> Add password</a
+      >
+    </div>
+
+    <!-- <div c lass="mb-3">
+      <a class="text-muted" href=""
+        ><i class="fa-solid fa-trash-can pe-2"></i> Trash</a
+      >
+    </div> -->
+  </div>
+  <div class="row" style="margin-bottom: 3.5rem">
+    <div>
+      <a class="text-muted" href="{% url 'menu' %}">
+        <i class="fa-solid fa-gear"></i> Settings</a
+      >
+    </div>
+  </div>
+</div>
